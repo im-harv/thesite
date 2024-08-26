@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rootfilesys.dev</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        #vanta-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .box {
+            text-align: center;
+            background-color: #4F000B;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.4);
+            position: relative;
+        }
+
+        .box h1 {
+            color: #FF7F51;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .box p {
+            color: #CE4257;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+
+        .buttons-container {
+            display: inline-flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .button {
+            background-color: #FF7F51;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background-color: #FF5733;
+        }
+
+        /* Modal for Proxmox button */
+        .modal {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            z-index: 1000;
+        }
+
+        .modal.show {
+            display: block;
+        }
+
+        .modal-close {
+            margin-left: 10px;
+            background-color: #FF7F51;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .modal-close:hover {
+            background-color: #FF5733;
+        }
+    </style>
+</head>
+<body>
+
+<div id="vanta-bg"></div>
+
+<div class="box">
+    <h1>rootfilesys.dev</h1>
+    <p>It's a static page. What do you expect.</p>
+    
+    <div class="buttons-container">
+        <a href="https://gwes-eas.network/listen/" target="_blank" class="button">ERN/HRV</a>
+        <button class="button" onclick="showModal()">Proxmox</button>
+        <a href="mailto:harv@rootfilesys.dev" class="button">Contact Me</a>
+    </div>
+</div>
+
+<div id="proxmox-modal" class="modal">
+    Proxmox is not available right now.
+    <button class="modal-close" onclick="closeModal()">Close</button>
+</div>
+
+<!-- Vanta.js and Three.js Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/tengbao/vanta@latest/dist/vanta.dots.min.js"></script>
+
+<script>
+    VANTA.DOTS({
+        el: "#vanta-bg",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: 1.00,
+        color: 0xce4257,
+        color2: 0xce4257,
+        size: 3.70,
+        spacing: 21.00,
+        showLines: false
+    });
+
+    // Show modal
+    function showModal() {
+        document.getElementById('proxmox-modal').classList.add('show');
+    }
+
+    // Close modal
+    function closeModal() {
+        document.getElementById('proxmox-modal').classList.remove('show');
+    }
+</script>
+
+</body>
+</html>
